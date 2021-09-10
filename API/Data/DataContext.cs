@@ -10,5 +10,7 @@ namespace API.Data
         }
 
         public DbSet<NestNotice> NestNotices { get; set; }
+
+        public DbSet<Admin> Admins {get; set; }
     }
 }
