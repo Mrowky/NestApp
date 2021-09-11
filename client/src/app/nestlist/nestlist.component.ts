@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NestlistService } from '../_services/nestlist.service';
+
 
 @Component({
   selector: 'app-nestlist',
@@ -9,18 +11,14 @@ import { Component, OnInit } from '@angular/core';
 export class NestlistComponent implements OnInit {
   nestnotices: any;
 
-  
-  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-    this.getNestNotices();
+  constructor(private appservice: NestlistService) { }
+
+  ngOnInit() {
+
+    this.appservice.getNestNotices();
+    console.log(this.nestnotices);
   }
-  getNestNotices() {
-    this.http.get('https://localhost:5001/api/nestnotices').subscribe(response => {
-      this.nestnotices = response;
-    }, error => {
-      console.log(error);
-    })
-  }
+
 
 }

@@ -1,1 +1,17 @@
-<p>addingnest works!</p>
+<form #addingnestForm="ngForm" (ngSubmit)="addnest()" autocomplete="off">
+  <h2 class="text-center text-primary">Dodaj zgłoszenie</h2>
+  <hr>
+  <div class="form-group">
+    <input type="text" class="form-control" name="routename" [(ngModel)]="model.routename" placeholder="Nazwa drogi">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="regionname" [(ngModel)]="model.regionname"
+      placeholder="Nazwa regionu">
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" type="submit">Dodaj zgłoszenie</button>
+    <button class="btn btn-default mr-2" (click)="cancel()" type="button">Anuluj</button>
+  </div>
+</form>
