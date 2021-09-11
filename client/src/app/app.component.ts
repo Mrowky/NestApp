@@ -7,18 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Zgłoszenia gniazd na drogach wspinaczkowych';
-  nestnotices: any;
+ 
+  addingnestMode = false;
+
 
   constructor(private http: HttpClient) { }
   ngOnInit() {
-    this.getNestNotices();
   }
-  getNestNotices() {
-    this.http.get('https://localhost:5001/api/nestnotices').subscribe(response => {
-      this.nestnotices = response;
-    }, error => {
-      console.log(error);
-    })
+
+  addingnestToggle() {
+    this.addingnestMode = !this.addingnestMode;
   }
+
+
+
 }

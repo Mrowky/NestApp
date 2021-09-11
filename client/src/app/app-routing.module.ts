@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddingnestComponent } from './addingnest/addingnest.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { NestlistComponent } from './nestlist/nestlist.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'addingnest', component: AddingnestComponent},
+  {path: 'nestlist', component: NestlistComponent},
+  {path: '**', component: AppComponent, pathMatch:'full'}
+  
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

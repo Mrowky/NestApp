@@ -28,6 +28,7 @@ namespace API.Controllers
         }
 
         [HttpPost("addnotice")]
+
         //dodawanie zgłoszenia 
         public async Task<ActionResult<NestNotice>> AddNotice(AddNoticeDTO addNoticeDTO)
         {
