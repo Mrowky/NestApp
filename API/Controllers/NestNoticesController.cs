@@ -9,9 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class NestNoticesController : ControllerBase
+   
+    public class NestNoticesController : BaseApiController
     {
         private readonly DataContext _context;
         public NestNoticesController(DataContext context)
