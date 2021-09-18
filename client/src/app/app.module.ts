@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NestlistComponent } from './nestlist/nestlist.component';
 import { AddingnestComponent } from './addingnest/addingnest.component';
 import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     NestlistComponent,
     AddingnestComponent,
     HomeComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-
+// pobieranie listy zgłoszonych dróg wspinaczkowych
         public async Task<ActionResult<List<NestNotice>>> GetNestNotices()
         {
             var NestNotices = _context.NestNotices.ToListAsync();

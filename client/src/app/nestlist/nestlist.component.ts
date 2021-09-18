@@ -12,12 +12,15 @@ export class NestlistComponent implements OnInit {
   nestnotices: any;
 
 
-  constructor(private appservice: NestlistService) { }
+  constructor(private nestlistservice: NestlistService) { }
 
   ngOnInit() {
+      this.nestlistservice.getNestNotices().subscribe(response => {
+      this.nestnotices = response;
 
-    this.appservice.getNestNotices();
-    console.log(this.nestnotices);
+    }), error => {
+      console.log(error);
+    }
   }
 
 
