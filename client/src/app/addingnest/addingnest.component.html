@@ -6,12 +6,20 @@
   </div>
 
   <div class="form-group">
+    <input type="text" class="form-control" name="rockname" [(ngModel)]="nestnotice.rockname"
+      placeholder="Nazwa skały">
+  </div>
+  <div class="form-group">
     <input type="text" class="form-control" name="regionname" [(ngModel)]="nestnotice.regionname"
       placeholder="Nazwa regionu">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="regionname" [(ngModel)]="nestnotice.noticedescription"
+      placeholder="Opis zgłoszenia">
   </div>
 
   <div class="form-group text-center">
     <button class="btn btn-success mr-2" type="submit">Dodaj zgłoszenie</button>
-    <button class="btn btn-default mr-2" (click)="cancel()" type="button">Anuluj</button>
+    <button class="btn btn-default mr-2" type="button" routerLink="/">Anuluj</button>
   </div>
 </form>

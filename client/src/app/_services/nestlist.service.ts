@@ -24,9 +24,7 @@ export class NestlistService {
       )
       
   }
-
-
-
+  
   //logowanie dla administratora
   login(model: any) {
     return this.http.post(this.baseUrl + 'account/login', model);

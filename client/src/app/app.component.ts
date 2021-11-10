@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
  
   addingnestMode = false;
-
-
+  
+ 
   constructor(private http: HttpClient) { }
   ngOnInit() {
   }
@@ -18,7 +19,6 @@ export class AppComponent implements OnInit {
   addingnestToggle() {
     this.addingnestMode = !this.addingnestMode;
   }
-
 
 
 }
