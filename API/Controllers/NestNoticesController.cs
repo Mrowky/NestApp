@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-   
+
     public class NestNoticesController : BaseApiController
     {
         private readonly DataContext _context;
@@ -18,13 +18,34 @@ namespace API.Controllers
             _context = context;
         }
 
+
+        //[Authorize]
         [HttpGet]
-// pobieranie listy zgłoszonych dróg wspinaczkowych
+        // pobieranie listy zgłoszonych dróg wspinaczkowych
         public async Task<ActionResult<List<NestNotice>>> GetNestNotices()
         {
-            var NestNotices = _context.NestNotices.ToListAsync();
+            var NestNotices = _context.NestNotices.Where(x => x.IsActive).ToListAsync();
             return await NestNotices;
         }
+        [HttpGet("notactive")]
+        // pobieranie listy nieaktywnych zgłoszeń dróg wspinaczkowych dla admina
+        public async Task<ActionResult<List<NestNotice>>> GetNotActiveNestNotices()
+        {
+            var NestNotices = _context.NestNotices.Where(x => !x.IsActive).ToListAsync();
+            return await NestNotices;
+        }
+        [HttpPost("confirmnotice")]
+        public async Task<ActionResult<bool>> ConfirmNotice(int nestnoticeId)
+        {
+            //to do sprawdzenie czy taka droga istnieje if (await NestNoticeExists(addNoticeDTO.RouteName)) return BadRequest("Droga już została zgłoszona");
+            var nestNotice = _context.NestNotices.FirstOrDefault(x => x.Id == nestnoticeId);
+            nestNotice.IsActive = true;
+            int v = await _context.SaveChangesAsync();
+            return true;
+
+        }
+
+
 
         [HttpPost("addnotice")]
 
@@ -38,9 +59,8 @@ namespace API.Controllers
                 RouteName = addNoticeDTO.RouteName,
                 RockName = addNoticeDTO.RockName,
                 RegionName = addNoticeDTO.RegionName,
-                NoticeDescription = addNoticeDTO.NoticeDescription
-
-
+                NoticeDescription = addNoticeDTO.NoticeDescription,
+                IsActive = false
             };
             _context.NestNotices.Add(nestnotice);
             await _context.SaveChangesAsync();

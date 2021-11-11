@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NestlistComponent } from './nestlist/nestlist.component';
 import { AddingnestComponent } from './addingnest/addingnest.component';
-import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
+import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
 
 
 @NgModule({
@@ -19,9 +19,9 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     NestlistComponent,
     AddingnestComponent,
-    HomeComponent,
     NavComponent,
     AdminComponent,
+    NotActiveNestlistComponent,
   ],
   imports: [
     BrowserModule,

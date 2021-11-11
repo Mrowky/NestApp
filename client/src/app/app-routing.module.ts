@@ -3,15 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddingnestComponent } from './addingnest/addingnest.component';
 import { AdminComponent } from './admin/admin.component';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NestlistComponent } from './nestlist/nestlist.component';
+import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: AppComponent},
   {path: 'addingnest', component: AddingnestComponent},
   {path: 'nestlist', component: NestlistComponent},
+  {path: 'notactivenestlist', component: NotActiveNestlistComponent},
   {path: 'admin', component: AdminComponent},
-  {path: '**', component: AppComponent, pathMatch:'full'}
+  {path: '**', component: AppComponent, pathMatch:'full'} //todo not found component
   
 
 ];

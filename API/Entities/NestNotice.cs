@@ -7,5 +7,6 @@ namespace API.Entities
         public string RockName { get; set; }
         public string RegionName { get; set; }
         public string NoticeDescription { get; set; }
+        public bool IsActive { get; set; }
     }
 }

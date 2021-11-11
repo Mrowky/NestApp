@@ -9,5 +9,6 @@ namespace API.DTOs
         public string RockName {get; set;}
         public string RegionName {get; set;}
         public string NoticeDescription {get; set;}
+        
     }
 }

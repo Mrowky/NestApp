@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+
+    <li *ngFor='let nestnotice of nestnotices'>{{nestnotice.id}} - {{nestnotice.routeName}}- {{nestnotice.rockName}}-
+      {{nestnotice.regionName}}- {{nestnotice.noticeDescription}}
+      <button type="button" class="btn btn-primary" (click)="activatenestnotice(nestnotice.id)">
+        Akceptuj
+      </button></li>
+  </ul>
+
+</div>
