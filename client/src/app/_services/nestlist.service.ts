@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Admin } from '../_models/admin';
 import { Nestnotice } from '../_models/nestnotice';
 
 @Injectable({
@@ -10,9 +9,6 @@ import { Nestnotice } from '../_models/nestnotice';
 })
 export class NestlistService {
   baseUrl = 'https://localhost:5001/api/';
-  private currentAdminSource = new ReplaySubject<Admin>(1);
-  currentAdmin$ = this.currentAdminSource.asObservable();
-
   constructor(private http: HttpClient) { }
 
   //pobieranie listy zgłoszeń gniazd
@@ -20,6 +16,7 @@ export class NestlistService {
     return this.http.get(this.baseUrl + 'nestnotices')
 
   }
+  //pobieranie listy zgłoszęń gniazd dla admina
   getNotActiveNestNotices() {
     return this.http.get(this.baseUrl + 'nestnotices/notactive')
   }
@@ -36,25 +33,6 @@ export class NestlistService {
 
   }
 
-  //logowanie dla administratora
-  login(model: any) {
-    return this.http.post(this.baseUrl + 'account/login', model).pipe(
-      map((response: Admin) => {
-        const admin = response;
-        if (admin) {
-          localStorage.setItem('admin', JSON.stringify(admin));
-          this.currentAdminSource.next(admin);
-        }
-      })
-    )
-  }
-  setCurrentAdmin(admin: Admin) {
-    this.currentAdminSource.next(admin);
-  }
-  logout() {
-    localStorage.removeItem('admin');
-    this.currentAdminSource.next(null);
-  }
 }
 
 

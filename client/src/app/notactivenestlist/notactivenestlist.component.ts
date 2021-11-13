@@ -29,6 +29,7 @@ export class NotActiveNestlistComponent implements OnInit {
       error => {
         console.log(error);
       }
+    window.location.reload();
   }
 
 
