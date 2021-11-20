@@ -12,6 +12,7 @@ import { AddingnestComponent } from './addingnest/addingnest.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
+import { EditnestnoticeComponent } from './editnestnotice/editnestnotice.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlis
     NavComponent,
     AdminComponent,
     NotActiveNestlistComponent,
+    EditnestnoticeComponent,
   ],
   imports: [
     BrowserModule,

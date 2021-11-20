@@ -9,24 +9,29 @@ import { NestlistService } from '../_services/nestlist.service';
 })
 export class AddingnestComponent implements OnInit {
 
-  nestnotice: Nestnotice = {
-    routename: '',
-    rockname: '',
-    regionname: '',
-    noticedescription: ''
-  };
+  nestnotice: any = {};
+  // nestnotice: Nestnotice = {
+  //   routeName: '',
+  //   rockName: '',
+  //   regionName: '',
+  //   noticeDescription: ''
+  // };
 
   constructor(private nestlistservice: NestlistService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   addnest() {
+    console.log(this.nestnotice);
     this.nestlistservice.addNestNotice(this.nestnotice).subscribe(response => {
-     // this.nestnotice[] = response;
-      
+      //this.nestnotice[] = response;
+
       console.log(response);
+      console.log(this.nestnotice);
+    }, error => {
+      console.log(error);
     });
 
   }

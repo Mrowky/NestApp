@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NestlistService } from '../_services/nestlist.service';
 
 
@@ -21,6 +22,9 @@ export class NestlistComponent implements OnInit {
     }), error => {
       console.log(error);
     }
+  }
+  edit(){
+    
   }
 
 

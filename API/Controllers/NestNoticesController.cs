@@ -34,6 +34,13 @@ namespace API.Controllers
             var NestNotices = _context.NestNotices.Where(x => !x.IsActive).ToListAsync();
             return await NestNotices;
         }
+
+        [HttpGet("{id}")]
+        // pobieranie zgłoszenia drogi wspinaczkowej do edycji 
+        public async Task<NestNotice> GetNoticeToEditAsync(int id)
+        {
+            return await _context.NestNotices.FindAsync(id);
+        }
         [HttpPost("confirmnotice")]
         public async Task<ActionResult<bool>> ConfirmNotice(int nestnoticeId)
         {
@@ -73,6 +80,21 @@ namespace API.Controllers
         {
             return await _context.NestNotices.AnyAsync(x => x.RouteName == routename.ToLower());
         }
+
+        //  [HttpPut]
+        // public async Task<ActionResult> UpdateNestNotice(AddNoticeDTO addNoticeDTO)
+        // {
+        //     var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //     var user = await _userRepository.GetUserByUsernameAsync(username);
+
+        //     _mapper.Map(addNoticeDTO, user);
+
+        //     _userRepository.Update(user);
+
+        //     if (await _userRepository.SaveAllAsync()) return NoContent();
+
+        //     return BadRequest("Failed to update user");
+        // }
 
     }
 }
