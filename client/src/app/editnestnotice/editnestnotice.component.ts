@@ -3,6 +3,7 @@ import { Nestnotice } from '../_models/nestnotice';
 import { NestlistService } from '../_services/nestlist.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Nestnoticeid } from '../_models/nestnoticeid';
 
 @Component({
   selector: 'app-editnestnotice',
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs';
 export class EditnestnoticeComponent implements OnInit {
 
   //nestnotice: any;
-  nestnotice: Nestnotice;
+  nestnoticeid: Nestnoticeid;
   // nestnotice: Nestnotice = {
   //   routename: '',
   //   rockname: '',
@@ -36,13 +37,21 @@ export class EditnestnoticeComponent implements OnInit {
   getEditNestNotice(id) {
 
     this.nestlistservice.getEditNestNotice(id).subscribe(response => {
-      this.nestnotice = response;
-      console.log(this.nestnotice);
+      this.nestnoticeid = response;
+      console.log(this.nestnoticeid);
 
     }), error => {
       console.log(error);
     };
 
+  }
+
+  editNestNotice() {
+    this.nestlistservice.editNestNotice(this.nestnoticeid).subscribe(() => {
+      console.log(this.nestnoticeid);
+    }), error => {
+      console.log(error);
+    };
   }
 
   cancel() {

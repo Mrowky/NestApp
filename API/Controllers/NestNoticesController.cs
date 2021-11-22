@@ -81,20 +81,22 @@ namespace API.Controllers
             return await _context.NestNotices.AnyAsync(x => x.RouteName == routename.ToLower());
         }
 
-        //  [HttpPut]
-        // public async Task<ActionResult> UpdateNestNotice(AddNoticeDTO addNoticeDTO)
-        // {
-        //     var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //     var user = await _userRepository.GetUserByUsernameAsync(username);
+        [HttpPut("{id}")] //edycja zgłoszenia
+        public async Task<ActionResult> UpdateNestNotice(int id, EditNoticeDTO editNoticeDTO)
+        {
+            var nestNotice = await _context.NestNotices.FindAsync(id);
+            {
+                nestNotice.RouteName = editNoticeDTO.RouteName;
+                nestNotice.RockName = editNoticeDTO.RockName;
+                nestNotice.RegionName = editNoticeDTO.RegionName;
+                nestNotice.NoticeDescription = editNoticeDTO.NoticeDescription;
+            }
+             _context.Entry(nestNotice).State = EntityState.Modified;
 
-        //     _mapper.Map(addNoticeDTO, user);
-
-        //     _userRepository.Update(user);
-
-        //     if (await _userRepository.SaveAllAsync()) return NoContent();
-
-        //     return BadRequest("Failed to update user");
-        // }
+            if (await _context.SaveChangesAsync() > 0 ) return NoContent();
+            return BadRequest("failed to update nestnotice");
+            
+        }
 
     }
 }

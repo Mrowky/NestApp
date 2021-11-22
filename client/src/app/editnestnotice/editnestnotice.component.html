@@ -1,24 +1,24 @@
-<form #addingnestForm="ngForm" autocomplete="off">
-  <h2 class="text-center text-primary">Dodaj zgłoszenie</h2>
+<form #editnestForm="ngForm" (ngSubmit)="editNestNotice()" autocomplete="off">
+  <h2 class="text-center text-primary">Edytuj zgłoszenie</h2>
   <hr>
   <div class="form-group">
-    <input class="form-control" name="routeName" [ngModel]="nestnotice?.routeName">
+    <input class="form-control" name="routeName" [(ngModel)]="nestnoticeid.routeName">
   </div>
 
   <div class="form-group">
-    <input type="text" class="form-control" name="rockName" [ngModel]="nestnotice?.rockName" placeholder="Nazwa skały">
+    <input type="text" class="form-control" name="rockName" [(ngModel)]="nestnoticeid.rockName" placeholder="Nazwa skały">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" name="regionName" [ngModel]="nestnotice?.regionName"
+    <input type="text" class="form-control" name="regionName" [(ngModel)]="nestnoticeid.regionName"
       placeholder="Nazwa regionu">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" name="noticeDescription" [ngModel]="nestnotice?.noticeDescription"
+    <input type="text" class="form-control" name="noticeDescription" [(ngModel)]="nestnoticeid.noticeDescription"
       placeholder="Opis zgłoszenia">
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Dodaj zgłoszenie</button>
+    <button class="btn btn-success mr-2" type="submit">Edytuj zgłoszenie</button>
     <button class="btn btn-default mr-2" type="button" routerLink="/">Anuluj</button>
   </div>
 </form>

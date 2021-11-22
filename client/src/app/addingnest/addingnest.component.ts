@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Nestnotice } from '../_models/nestnotice';
+import { Nestnoticeid } from '../_models/nestnoticeid';
 import { NestlistService } from '../_services/nestlist.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { NestlistService } from '../_services/nestlist.service';
 export class AddingnestComponent implements OnInit {
 
   nestnotice: any = {};
+  
+
   // nestnotice: Nestnotice = {
   //   routeName: '',
   //   rockName: '',
