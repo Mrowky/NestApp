@@ -10,7 +10,8 @@ import { NestlistService } from '../_services/nestlist.service';
 })
 export class AddingnestComponent implements OnInit {
 
-  nestnotice: any = {};
+  //nestnotice: any = {};
+  nestnotice: Nestnotice = new Nestnotice ();
   
 
   // nestnotice: Nestnotice = {

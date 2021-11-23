@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AdminService } from '../_services/admin.service';
 import { NestlistService } from '../_services/nestlist.service';
 
 
@@ -13,7 +14,7 @@ export class NestlistComponent implements OnInit {
   nestnotices: any;
 
 
-  constructor(private nestlistservice: NestlistService) { }
+  constructor(public adminService: AdminService, private nestlistservice: NestlistService) { }
 
   ngOnInit() {
       this.nestlistservice.getNestNotices().subscribe(response => {

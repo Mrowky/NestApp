@@ -91,12 +91,25 @@ namespace API.Controllers
                 nestNotice.RegionName = editNoticeDTO.RegionName;
                 nestNotice.NoticeDescription = editNoticeDTO.NoticeDescription;
             }
-             _context.Entry(nestNotice).State = EntityState.Modified;
+            _context.Entry(nestNotice).State = EntityState.Modified;
 
-            if (await _context.SaveChangesAsync() > 0 ) return NoContent();
+            if (await _context.SaveChangesAsync() > 0) return NoContent();
             return BadRequest("failed to update nestnotice");
-            
+
         }
+
+        [HttpDelete("{id}")] // usunięcię zgłoszenia
+
+        public async Task<ActionResult> DeleteNestNotice(int id)
+        {
+            var nestNotice = await _context.NestNotices.FindAsync(id);
+            _context.NestNotices.Remove(nestNotice);
+            //_context.Entry(nestNotice).State = EntityState.Deleted;
+            if (await _context.SaveChangesAsync() > 0) return Ok();
+            return BadRequest("failed to delete nestnotice");
+        }
+
+
 
     }
 }

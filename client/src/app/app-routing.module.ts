@@ -3,17 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddingnestComponent } from './addingnest/addingnest.component';
 import { AdminComponent } from './admin/admin.component';
 import { AppComponent } from './app.component';
+import { DescriptionComponent } from './description/description.component';
 import { EditnestnoticeComponent } from './editnestnotice/editnestnotice.component';
 import { NestlistComponent } from './nestlist/nestlist.component';
 import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'addingnest', component: AddingnestComponent },
+  { path: 'description', component: DescriptionComponent },
   { path: 'nestlist', component: NestlistComponent },
-  { path: 'notactivenestlist', component: NotActiveNestlistComponent },
+  { path: 'notactivenestlist', component: NotActiveNestlistComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent },
-  { path: 'nestlist/editnestnotice/:id', component: EditnestnoticeComponent },
+  { path: 'nestlist/editnestnotice/:id', component: EditnestnoticeComponent, canActivate: [AuthGuard] },
   { path: '**', component: AppComponent, pathMatch: 'full' } //todo not found component
 
 

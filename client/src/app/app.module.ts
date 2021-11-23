@@ -13,6 +13,7 @@ import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
 import { EditnestnoticeComponent } from './editnestnotice/editnestnotice.component';
+import { DescriptionComponent } from './description/description.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { EditnestnoticeComponent } from './editnestnotice/editnestnotice.compone
     AdminComponent,
     NotActiveNestlistComponent,
     EditnestnoticeComponent,
+    DescriptionComponent,
   ],
   imports: [
     BrowserModule,

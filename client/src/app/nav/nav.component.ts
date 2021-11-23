@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../_services/admin.service';
 
 @Component({
@@ -8,9 +9,12 @@ import { AdminService } from '../_services/admin.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(public adminService: AdminService) { }
+  constructor(public adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  logout() {
+    this.adminService.logout();
+    this.router.navigateByUrl('/nestlist')
+  }
 }

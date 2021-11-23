@@ -1,4 +1,4 @@
-export interface Nestnotice {
+export class Nestnotice {
     routeName: string;
     rockName: string;
     regionName: string;

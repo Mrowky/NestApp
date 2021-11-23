@@ -1,4 +1,4 @@
-<form #editnestForm="ngForm" (ngSubmit)="editNestNotice()" autocomplete="off">
+<form #editnestForm="ngForm" (ngSubmit)="editNestNotice()" autocomplete="off" *ngIf="nestnoticeid">
   <h2 class="text-center text-primary">Edytuj zgłoszenie</h2>
   <hr>
   <div class="form-group">
@@ -6,7 +6,8 @@
   </div>
 
   <div class="form-group">
-    <input type="text" class="form-control" name="rockName" [(ngModel)]="nestnoticeid.rockName" placeholder="Nazwa skały">
+    <input type="text" class="form-control" name="rockName" [(ngModel)]="nestnoticeid.rockName"
+      placeholder="Nazwa skały">
   </div>
   <div class="form-group">
     <input type="text" class="form-control" name="regionName" [(ngModel)]="nestnoticeid.regionName"

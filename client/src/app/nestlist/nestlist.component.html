@@ -1,9 +1,19 @@
 <div class="container">
   <ul>
+
+    <li *ngFor='let nestnotice of nestnotices'>{{nestnotice.id}} - {{nestnotice.routeName}}- {{nestnotice.rockName}}-
+      {{nestnotice.regionName}}- {{nestnotice.noticeDescription}} - 
+      
+      <button
+        type="button" class="btn btn-primary" routerLink='editnestnotice/{{nestnotice.id}}' *ngIf="adminService.currentAdmin$ |async">
+        Edytuj
+      </button>
+      <button
+        type="button" class="btn btn-primary" routerLink='editnestnotice/{{nestnotice.id}}' *ngIf="adminService.currentAdmin$ |async">
+        Usuń
+      </button>
     
-    <li *ngFor='let nestnotice of nestnotices'>{{nestnotice.id}} - {{nestnotice.routeName}}- {{nestnotice.rockName}}- {{nestnotice.regionName}}- {{nestnotice.noticeDescription}} -  <button type="button" class="btn btn-primary" routerLink = 'editnestnotice/{{nestnotice.id}}'>
-      Edytuj
-    </button></li>
+    </li>
   </ul>
 
 </div>
