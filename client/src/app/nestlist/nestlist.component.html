@@ -9,7 +9,7 @@
         Edytuj
       </button>
       <button
-        type="button" class="btn btn-primary" routerLink='editnestnotice/{{nestnotice.id}}' *ngIf="adminService.currentAdmin$ |async">
+        type="button" class="btn btn-primary" (click)="deleteNestNotice(nestnotice.id)" *ngIf="adminService.currentAdmin$ |async">
         Usuń
       </button>
     

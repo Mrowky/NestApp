@@ -24,7 +24,7 @@ export class NestlistService {
     return this.http.get(this.baseUrl + 'nestnotices/notactive')
   }
 
-  getEditNestNotice(id: number):Observable<Nestnoticeid> {
+  getEditNestNotice(id: number): Observable<Nestnoticeid> {
     return this.http.get<Nestnoticeid>(this.baseUrl + 'nestnotices/' + id)
   }
 
@@ -37,8 +37,8 @@ export class NestlistService {
     return this.http.post(this.baseUrl + 'nestnotices/addnotice', nestnotice)
 
   }
-  editNestNotice(nestnoticeid: Nestnoticeid){
-    return this.http.put(this.baseUrl + 'nestnotices/'+ nestnoticeid.id , nestnoticeid)
+  editNestNotice(nestnoticeid: Nestnoticeid) {
+    return this.http.put(this.baseUrl + 'nestnotices/' + nestnoticeid.id, nestnoticeid)
     // .pipe(
     //   map(()=>{
     //     const index = this.nestnotices.indexOf(nestnotice);
@@ -46,6 +46,18 @@ export class NestlistService {
     //   })
     // )
   }
+
+  deleteNestNotice(nestnoticeId: number) {
+    return this.http.delete(this.baseUrl + 'nestnotices/' + nestnoticeId)
+    // .pipe(
+    //   map(()=>{
+    //     const index = this.nestnotices.indexOf(nestnotice);
+    //     this.nestnotices[index] = nestnotice;
+    //   })
+    // )
+  }
+
+
 
 }
 

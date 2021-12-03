@@ -17,15 +17,20 @@ export class NestlistComponent implements OnInit {
   constructor(public adminService: AdminService, private nestlistservice: NestlistService) { }
 
   ngOnInit() {
-      this.nestlistservice.getNestNotices().subscribe(response => {
+    this.nestlistservice.getNestNotices().subscribe(response => {
       this.nestnotices = response;
 
     }), error => {
       console.log(error);
     }
   }
-  edit(){
-    
+  deleteNestNotice(nestnoticeId) {
+    this.nestlistservice.deleteNestNotice(nestnoticeId).subscribe(),
+    error => {
+      console.log(error);
+    }
+    window.location.reload();
+
   }
 
 

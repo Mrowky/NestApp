@@ -1,6 +1,6 @@
 export interface Nestnoticeid {
     id: number; 
-    routeName: '';
+    routeName: string;
     rockName: string;
     regionName: string;
     noticeDescription: string;
