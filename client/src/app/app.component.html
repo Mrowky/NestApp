@@ -1,5 +1,42 @@
-<app-nav></app-nav>
-<div class="container">
-</div>
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isOpened = !isOpened">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">🐦Gniazda</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" [(opened)]="isOpened">
+    <mat-nav-list>
+      <mat-list-item routerLink="/nestlist">
+        <i class="fas fa-list-ul m-2"></i>
+        Lista zgłoszeń
+      </mat-list-item>
+      <mat-list-item routerLink="/addingnest">
+        <i class="fas fa-egg  m-2"></i>
+        Dodaj zgłoszenie
+      </mat-list-item>
+      <mat-list-item routerLink="/description">
+        <i class="fas fa-dove  m-2"></i>
+        O projekcie
+      </mat-list-item>
+      <ng-container *ngIf="adminService.currentAdmin$ |async">
+        <mat-list-item routerLink="/notactivenestlist">
+          <i class="fas fa-list-ul m-2"></i>
+          Zgłoszenia do akceptacji
+        </mat-list-item>
+        <mat-list-item routerLink="/nestlist" (click)="logout()">
+            <i class="fas fa-sign-out-alt m-2"></i>
+          Wyloguj
+        </mat-list-item>
+      </ng-container>
 
-<router-outlet></router-outlet>
+    </mat-nav-list>
+    <mat-nav-list>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="m-5">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</mat-sidenav-container>

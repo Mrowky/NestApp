@@ -1,19 +1,64 @@
-<div class="container">
-  <ul>
+<h1>Lista gniazd</h1>
 
-    <li *ngFor='let nestnotice of nestnotices'>{{nestnotice.id}} - {{nestnotice.routeName}}- {{nestnotice.rockName}}-
-      {{nestnotice.regionName}}- {{nestnotice.noticeDescription}} - 
-      
-      <button
-        type="button" class="btn btn-primary" routerLink='editnestnotice/{{nestnotice.id}}' *ngIf="adminService.currentAdmin$ |async">
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <!-- <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">
+      Nr
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+  </ng-container> -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="routeName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by routeName">
+      Nazwa drogi
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.routeName}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="rockName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by rockName">
+      Nazwa skały
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.rockName}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="regionName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by regionName">
+      Nazwa regionu
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.regionName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="noticeDescription">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by noticeDescription">
+      Opis zgłoszenia
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.noticeDescription}} </mat-cell>
+  </ng-container>
+
+  <ng-container>
+
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button type="button" class="btn btn-primary" routerLink='editnestnotice/{{row.id}}'
+        *ngIf="adminService.currentAdmin$ |async">
         Edytuj
       </button>
-      <button
-        type="button" class="btn btn-primary" (click)="deleteNestNotice(nestnotice.id)" *ngIf="adminService.currentAdmin$ |async">
+      <button type="button" class="btn btn-primary" (click)="deleteNestNotice(row.id)"
+        *ngIf="adminService.currentAdmin$ |async">
         Usuń
       </button>
-    
-    </li>
-  </ul>
+    </mat-cell>
+  </ng-container>
 
-</div>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -14,6 +14,13 @@ import { AdminComponent } from './admin/admin.component';
 import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
 import { EditnestnoticeComponent } from './editnestnotice/editnestnotice.component';
 import { DescriptionComponent } from './description/description.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -33,7 +40,14 @@ import { DescriptionComponent } from './description/description.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatTableModule,
+    MatSortModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

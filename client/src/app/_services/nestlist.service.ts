@@ -15,8 +15,8 @@ export class NestlistService {
   constructor(private http: HttpClient) { }
 
   //pobieranie listy zgłoszeń gniazd
-  getNestNotices() {
-    return this.http.get(this.baseUrl + 'nestnotices')
+  getNestNotices(): Observable<Nestnoticeid[]> {
+    return this.http.get<Nestnoticeid[]>(this.baseUrl + 'nestnotices')
 
   }
   //pobieranie listy zgłoszęń gniazd dla admina
