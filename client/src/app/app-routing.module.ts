@@ -10,16 +10,14 @@ import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlis
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: NestlistComponent },
   { path: 'addingnest', component: AddingnestComponent },
   { path: 'description', component: DescriptionComponent },
   { path: 'nestlist', component: NestlistComponent },
   { path: 'notactivenestlist', component: NotActiveNestlistComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent },
   { path: 'nestlist/editnestnotice/:id', component: EditnestnoticeComponent, canActivate: [AuthGuard] },
-  { path: '**', component: AppComponent, pathMatch: 'full' } //todo not found component
-
-
+  { path: '**', component: NestlistComponent, pathMatch: 'full' } //todo not found component
 ];
 
 @NgModule({

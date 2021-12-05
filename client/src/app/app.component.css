@@ -18,3 +18,7 @@
 .full-width {
   width: 100%;
 }
+
+.main-container {
+  height: 100vh;
+}

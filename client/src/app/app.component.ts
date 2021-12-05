@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { Admin } from './_models/admin';
 import { NestlistService } from './_services/nestlist.service';
 import { AdminService } from './_services/admin.service';
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient, public adminService: AdminService,private router: Router) { }
+  constructor(private http: HttpClient, public adminService: AdminService, private router: Router) { }
   ngOnInit() {
     this.setCurrentAdmin();
   }

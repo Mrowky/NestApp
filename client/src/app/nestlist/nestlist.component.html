@@ -41,24 +41,18 @@
     <mat-cell *matCellDef="let row"> {{row.noticeDescription}} </mat-cell>
   </ng-container>
 
-  <ng-container>
-
-  </ng-container>
-
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button type="button" class="btn btn-primary" routerLink='editnestnotice/{{row.id}}'
-        *ngIf="adminService.currentAdmin$ |async">
+      <button type="button" class="btn btn-primary" routerLink='editnestnotice/{{row.id}}'>
         Edytuj
       </button>
-      <button type="button" class="btn btn-primary" (click)="deleteNestNotice(row.id)"
-        *ngIf="adminService.currentAdmin$ |async">
+      <button type="button" class="btn btn-primary" (click)="deleteNestNotice(row.id)">
         Usuń
       </button>
     </mat-cell>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: getDisplayedColumns();"></mat-row>
 </mat-table>

@@ -13,10 +13,17 @@ import { NestlistService } from '../_services/nestlist.service';
 })
 export class NestlistComponent implements OnInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-  displayedColumns: string[] = ['routeName', 'rockName', 'regionName', 'noticeDescription', 'actions'];
   dataSource = new MatTableDataSource<Nestnoticeid>();
 
-
+  getDisplayedColumns(): string[] {
+    var admin;
+    this.adminService.currentAdmin$.subscribe(x => admin = x);
+    if (admin) {
+      return ['routeName', 'rockName', 'regionName', 'noticeDescription', 'actions'];
+    } else {
+      return ['routeName', 'rockName', 'regionName', 'noticeDescription'];
+    }
+  }
 
   constructor(public adminService: AdminService, private nestlistservice: NestlistService) { }
 
