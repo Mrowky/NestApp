@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NestlistComponent } from './nestlist/nestlist.component';
 import { AddingnestComponent } from './addingnest/addingnest.component';
-import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotActiveNestlistComponent } from './notactivenestlist/notactivenestlist.component';
 import { EditnestnoticeComponent } from './editnestnotice/editnestnotice.component';
@@ -21,19 +20,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NestlistComponent,
     AddingnestComponent,
-    NavComponent,
     AdminComponent,
     NotActiveNestlistComponent,
     EditnestnoticeComponent,
     DescriptionComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,8 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     MatSnackBarModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000}}
   ],
   bootstrap: [AppComponent]
 })
