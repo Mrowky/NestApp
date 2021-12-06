@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Nestnoticeid } from '../_models/nestnoticeid';
 import { NestlistService } from '../_services/nestlist.service';
 
 
@@ -9,15 +12,17 @@ import { NestlistService } from '../_services/nestlist.service';
   styleUrls: ['./notactivenestlist.component.css']
 })
 export class NotActiveNestlistComponent implements OnInit {
-  nestnotices: any;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  displayedColumns: string[] = ['routeName', 'rockName', 'regionName', 'noticeDescription', 'actions'];
+  dataSource = new MatTableDataSource<Nestnoticeid>();
 
 
   constructor(private nestlistservice: NestlistService) { }
 
   ngOnInit() {
     this.nestlistservice.getNotActiveNestNotices().subscribe(response => {
-      this.nestnotices = response;
-
+      this.dataSource = new MatTableDataSource<Nestnoticeid>(response);
+      this.dataSource.sort = this.sort;
     }), error => {
       console.log(error);
     }
@@ -31,6 +36,5 @@ export class NotActiveNestlistComponent implements OnInit {
       }
     window.location.reload();
   }
-
 
 }

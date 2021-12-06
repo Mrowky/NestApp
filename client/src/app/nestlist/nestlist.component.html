@@ -1,16 +1,8 @@
-<h1>Lista gniazd</h1>
+<h2>Lista gniazd</h2>
 
 <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-  <!-- Position Column -->
-  <!-- <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">
-      Nr
-    </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-  </ng-container> -->
-
-  <!-- Name Column -->
+ 
   <ng-container matColumnDef="routeName">
     <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by routeName">
       Nazwa drogi
@@ -18,7 +10,7 @@
     <mat-cell *matCellDef="let row"> {{row.routeName}} </mat-cell>
   </ng-container>
 
-  <!-- Weight Column -->
+  
   <ng-container matColumnDef="rockName">
     <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by rockName">
       Nazwa skały
@@ -26,7 +18,7 @@
     <mat-cell *matCellDef="let row"> {{row.rockName}} </mat-cell>
   </ng-container>
 
-  <!-- Symbol Column -->
+  
   <ng-container matColumnDef="regionName">
     <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by regionName">
       Nazwa regionu

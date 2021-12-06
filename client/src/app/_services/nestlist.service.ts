@@ -20,8 +20,8 @@ export class NestlistService {
 
   }
   //pobieranie listy zgłoszęń gniazd dla admina
-  getNotActiveNestNotices() {
-    return this.http.get(this.baseUrl + 'nestnotices/notactive')
+  getNotActiveNestNotices(): Observable<Nestnoticeid[]> {
+    return this.http.get<Nestnoticeid[]>(this.baseUrl + 'nestnotices/notactive')
   }
 
   getEditNestNotice(id: number): Observable<Nestnoticeid> {
