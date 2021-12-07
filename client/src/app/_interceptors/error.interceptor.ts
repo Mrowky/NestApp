@@ -23,7 +23,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
           switch (error.status) {
             case 400:
-              this._snackBar.open('⚠️ Error 400: ' + error.error.title);
+              this._snackBar.open('⚠️ Error 400: ' + error.error);
               break;
             case 401:
               this._snackBar.open('⚠️ Error 401: Unauthorized');

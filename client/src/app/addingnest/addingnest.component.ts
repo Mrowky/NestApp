@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Nestnotice } from '../_models/nestnotice';
-import { Nestnoticeid } from '../_models/nestnoticeid';
 import { NestlistService } from '../_services/nestlist.service';
 
 @Component({
@@ -10,37 +11,31 @@ import { NestlistService } from '../_services/nestlist.service';
 })
 export class AddingnestComponent implements OnInit {
 
-  //nestnotice: any = {};
-  nestnotice: Nestnotice = new Nestnotice ();
-  
-
-  // nestnotice: Nestnotice = {
-  //   routeName: '',
-  //   rockName: '',
-  //   regionName: '',
-  //   noticeDescription: ''
-  // };
-
-  constructor(private nestlistservice: NestlistService) { }
+  nestnotice: Nestnotice = new Nestnotice();
+  addNestForm: FormGroup;
+  constructor(private nestlistservice: NestlistService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-
+    this.initializeForm();
+  }
+  initializeForm() {
+    this.addNestForm = new FormGroup({
+      routeName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      rockName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      regionName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      noticeDescription: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+    })
   }
 
   addnest() {
-    console.log(this.nestnotice);
+    this.nestnotice = this.addNestForm.value;
     this.nestlistservice.addNestNotice(this.nestnotice).subscribe(response => {
-      //this.nestnotice[] = response;
-
-      console.log(response);
-      console.log(this.nestnotice);
+      this._snackBar.open('✔️ Zgłoszenie zostało dodane. Czeka na akceptację administratora.😃');
+      this.addNestForm.reset();
     }, error => {
       console.log(error);
     });
 
-  }
-  cancel() {
-    console.log('cancelled');
   }
 
 }

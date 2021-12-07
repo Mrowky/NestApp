@@ -1,25 +1,37 @@
-<form class=".col-md-6 .offset-md-3 flex" #addingnestForm="ngForm" (ngSubmit)="addnest()" autocomplete="off">
+<form [formGroup]="addNestForm" class=".col-md-6 .offset-md-3 flex" (ngSubmit)="addnest()" autocomplete="off">
   <h2 class="text-center text-primary">Dodaj zgłoszenie</h2>
   <hr>
   <div class="form-group">
-    <input type="text" class="form-control" name="routeName" [(ngModel)]="nestnotice.routeName"
+    <input [class.is-invalid]='addNestForm.get("routeName").errors
+    && addNestForm.get("routeName").touched' formControlName="routeName" type="text" class="form-control"
       placeholder="Nazwa drogi">
+    <div class="invalid-feedback">Proszę wprowadzić nazwę drogi</div>
   </div>
 
   <div class="form-group">
-    <input type="text" class="form-control" name="rockName" [(ngModel)]="nestnotice.rockName" placeholder="Nazwa skały">
+    <input [class.is-invalid]='addNestForm.get("rockName").errors
+    && addNestForm.get("rockName").touched' formControlName="rockName" type="text" class="form-control"
+      placeholder="Nazwa skały">
+    <div class="invalid-feedback">Proszę wprowadzić nazwę skały</div>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" name="regionName" [(ngModel)]="nestnotice.regionName"
+    <input [class.is-invalid]='addNestForm.get("regionName").errors
+    && addNestForm.get("regionName").touched' formControlName="regionName" type="text" class="form-control"
       placeholder="Nazwa regionu">
+    <div class="invalid-feedback">Proszę wprowadzić nazwę regionu</div>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" name="noticeDescription" [(ngModel)]="nestnotice.noticeDescription"
-      placeholder="Opis zgłoszenia">
+    <input [class.is-invalid]='addNestForm.get("noticeDescription").errors
+    && addNestForm.get("noticeDescription").touched' formControlName="noticeDescription" type="text"
+      class="form-control" placeholder="Opis zgłoszenia">
+    <div class="invalid-feedback">Proszę wprowadzić opis zgłoszenia</div>
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Dodaj zgłoszenie</button>
+    <button [disabled]='!addNestForm.valid' class="btn btn-success mr-2" type="submit">Dodaj zgłoszenie</button>
     <button class="btn btn-default mr-2" type="button" routerLink="/">Anuluj</button>
   </div>
 </form>
+
+<p>Form value: {{addNestForm.value |json}}</p>
+<p>Form status: {{addNestForm.status |json}}</p>
