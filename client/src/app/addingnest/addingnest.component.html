@@ -1,37 +1,44 @@
-<form [formGroup]="addNestForm" class=".col-md-6 .offset-md-3 flex" (ngSubmit)="addnest()" autocomplete="off">
-  <h2 class="text-center text-primary">Dodaj zgłoszenie</h2>
-  <hr>
-  <div class="form-group">
-    <input [class.is-invalid]='addNestForm.get("routeName").errors
-    && addNestForm.get("routeName").touched' formControlName="routeName" type="text" class="form-control"
-      placeholder="Nazwa drogi">
-    <div class="invalid-feedback">Proszę wprowadzić nazwę drogi</div>
-  </div>
+<form [formGroup]="addNestForm" class="flex" (ngSubmit)="addnest()" autocomplete="off">
+  <div class="bg">
+    <h2 class="text-center text-primary py-5">Dodaj zgłoszenie</h2>
+    <div class="form-group input-group-lg ">
+      <input [class.is-invalid]='addNestForm.get("routeName").errors
+    && addNestForm.get("routeName").touched' formControlName="routeName" type="text" class="form-control w-50"
+        aria-describedby="input-sizing-lg" placeholder="Nazwa drogi">
+      <div class="invalid-feedback">
+        <p class="d-flex justify-content-center">Proszę wprowadzić nazwę drogi</p>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <input [class.is-invalid]='addNestForm.get("rockName").errors
-    && addNestForm.get("rockName").touched' formControlName="rockName" type="text" class="form-control"
-      placeholder="Nazwa skały">
-    <div class="invalid-feedback">Proszę wprowadzić nazwę skały</div>
-  </div>
-  <div class="form-group">
-    <input [class.is-invalid]='addNestForm.get("regionName").errors
-    && addNestForm.get("regionName").touched' formControlName="regionName" type="text" class="form-control"
-      placeholder="Nazwa regionu">
-    <div class="invalid-feedback">Proszę wprowadzić nazwę regionu</div>
-  </div>
-  <div class="form-group">
-    <input [class.is-invalid]='addNestForm.get("noticeDescription").errors
+    <div class="form-group input-group-lg">
+      <input [class.is-invalid]='addNestForm.get("rockName").errors
+    && addNestForm.get("rockName").touched' formControlName="rockName" type="text" class="form-control w-50"
+        placeholder="Nazwa skały">
+      <div class="invalid-feedback">
+        <p class="d-flex justify-content-center">Proszę wprowadzić nazwę skały</p>
+      </div>
+    </div>
+    <div class="form-group input-group-lg">
+      <input [class.is-invalid]='addNestForm.get("regionName").errors
+    && addNestForm.get("regionName").touched' formControlName="regionName" type="text" class="form-control w-50"
+        placeholder="Nazwa regionu">
+      <div class="invalid-feedback">
+        <p class="d-flex justify-content-center">Proszę wprowadzić nazwę regionu</p>
+      </div>
+    </div>
+    <div class="form-group input-group-lg ">
+      <input [class.is-invalid]='addNestForm.get("noticeDescription").errors
     && addNestForm.get("noticeDescription").touched' formControlName="noticeDescription" type="text"
-      class="form-control" placeholder="Opis zgłoszenia">
-    <div class="invalid-feedback">Proszę wprowadzić opis zgłoszenia</div>
-  </div>
+        class="form-control w-50" placeholder="Opis zgłoszenia">
+      <div class="invalid-feedback ">
+        <p class="d-flex justify-content-center">Proszę wprowadzić opis zgłoszenia</p>
+      </div>
+    </div>
 
-  <div class="form-group text-center">
-    <button [disabled]='!addNestForm.valid' class="btn btn-success mr-2" type="submit">Dodaj zgłoszenie</button>
-    <button class="btn btn-default mr-2" type="button" routerLink="/">Anuluj</button>
+    <div class="form-group text-center">
+      <button [disabled]='!addNestForm.valid' class="btn btn-success btn-lg mr-2" type="submit">Dodaj
+        zgłoszenie</button>
+      <button class="cancle btn btn-warning btn-lg mr-2" type="button" routerLink="/">Anuluj</button>
+    </div>
   </div>
 </form>
-
-<p>Form value: {{addNestForm.value |json}}</p>
-<p>Form status: {{addNestForm.status |json}}</p>
