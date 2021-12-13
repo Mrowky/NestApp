@@ -5,7 +5,8 @@
   <h1 class="example-app-name"> 🐦{{title}}</h1>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
-  <mat-sidenav #sidenav class="example-sidenav" mode="side" [(opened)]="isOpened">
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" [(opened)]="isOpened" fixedInViewport="fixed"
+    fixedTopGap="80">
     <mat-nav-list>
       <mat-list-item routerLink="/nestlist">
         <i class="fas fa-list-ul m-2"></i>
@@ -29,10 +30,8 @@
           Wyloguj
         </mat-list-item>
       </ng-container>
+    </mat-nav-list>
 
-    </mat-nav-list>
-    <mat-nav-list>
-    </mat-nav-list>
   </mat-sidenav>
   <div class="m-5 main-container">
     <router-outlet></router-outlet>

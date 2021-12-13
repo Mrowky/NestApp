@@ -15,10 +15,13 @@ export class AppComponent implements OnInit {
   title = 'System dodawania zgłoszeń o ptasich gniazdach na drogach wspinaczkowych.';
   @ViewChild('sidenav') sidenav: MatSidenav;
   isOpened = false;
+  
 
 
 
-  constructor(private http: HttpClient, public adminService: AdminService, private router: Router) { }
+  constructor(private http: HttpClient, public adminService: AdminService, private router: Router,) {}
+  
+
   ngOnInit() {
     this.setCurrentAdmin();
   }
