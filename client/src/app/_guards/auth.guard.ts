@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
       map(admin => {
         if (admin) return true;
         {
-          console.log('You shall not pass');
+          console.log('Nie masz uprawnień do wyświtlenia');
           this._router.navigateByUrl('/nestlist')
         }
       })

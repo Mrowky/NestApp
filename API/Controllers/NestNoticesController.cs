@@ -44,7 +44,6 @@ namespace API.Controllers
         [HttpPost("confirmnotice")]
         public async Task<ActionResult<bool>> ConfirmNotice(int nestnoticeId)
         {
-            //to do sprawdzenie czy taka droga istnieje if (await NestNoticeExists(addNoticeDTO.RouteName)) return BadRequest("Droga już została zgłoszona");
             var nestNotice = _context.NestNotices.FirstOrDefault(x => x.Id == nestnoticeId);
             nestNotice.IsActive = true;
             int v = await _context.SaveChangesAsync();
@@ -104,7 +103,6 @@ namespace API.Controllers
         {
             var nestNotice = await _context.NestNotices.FindAsync(id);
             _context.NestNotices.Remove(nestNotice);
-            //_context.Entry(nestNotice).State = EntityState.Deleted;
             if (await _context.SaveChangesAsync() > 0) return Ok();
             return BadRequest("failed to delete nestnotice");
         }
