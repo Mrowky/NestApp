@@ -1,0 +1,12 @@
+div>input.form-control {
+  margin: 0 auto;
+  border-radius: 40px;
+}
+
+div.wrapper {
+  margin: 0 auto;
+}
+
+div.wrapper>button {
+  margin: 5;
+}

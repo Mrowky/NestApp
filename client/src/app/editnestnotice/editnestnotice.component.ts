@@ -4,6 +4,7 @@ import { NestlistService } from '../_services/nestlist.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Nestnoticeid } from '../_models/nestnoticeid';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editnestnotice',
@@ -21,7 +22,7 @@ export class EditnestnoticeComponent implements OnInit {
   //   noticedescription: ''
   // };
 
-  constructor(private nestlistservice: NestlistService, private route: ActivatedRoute) { }
+  constructor(private nestlistservice: NestlistService, private route: ActivatedRoute, private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     // this.route.queryParams.subscribe(params => {
@@ -48,6 +49,7 @@ export class EditnestnoticeComponent implements OnInit {
 
   editNestNotice() {
     this.nestlistservice.editNestNotice(this.nestnoticeid).subscribe(() => {
+      this._snackBar.open('✔️ Edytowano zgłoszenie');
       console.log(this.nestnoticeid);
     }), error => {
       console.log(error);
@@ -55,7 +57,8 @@ export class EditnestnoticeComponent implements OnInit {
   }
 
   cancel() {
-    console.log('cancelled');
+    this.router.navigateByUrl('/nestlist')
+    this.nestnoticeid = null;
   }
 
 }

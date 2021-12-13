@@ -2,7 +2,7 @@
   <button mat-icon-button (click)="isOpened = !isOpened">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1 class="example-app-name">🐦System dodawania zgłoszeń o ptasich gniazdach na drogach wspinaczkowych.</h1>
+  <h1 class="example-app-name"> 🐦{{title}}</h1>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav #sidenav class="example-sidenav" mode="side" [(opened)]="isOpened">
@@ -24,7 +24,7 @@
           <i class="fas fa-list-ul m-2"></i>
           Zgłoszenia do akceptacji
         </mat-list-item>
-        <mat-list-item routerLink="/nestlist" (click)="logout()">
+        <mat-list-item (click)="logout()">
           <i class="fas fa-sign-out-alt m-2"></i>
           Wyloguj
         </mat-list-item>

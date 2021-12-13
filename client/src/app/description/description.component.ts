@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./description.component.css']
 })
 export class DescriptionComponent implements OnInit {
-  title = 'Zgłoszenia gniazd na drogach wspinaczkowych';
+  
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
+}
 
 }

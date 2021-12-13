@@ -1,25 +1,27 @@
 <form #editnestForm="ngForm" (ngSubmit)="editNestNotice()" autocomplete="off" *ngIf="nestnoticeid">
-  <h2 class="text-center text-primary">Edytuj zgłoszenie</h2>
-  <hr>
-  <div class="form-group">
-    <input class="form-control" name="routeName" [(ngModel)]="nestnoticeid.routeName">
-  </div>
+  <div class="bg">
+    <h2 class="text-center text-primary py-5">Edytuj zgłoszenie</h2>
 
-  <div class="form-group">
-    <input type="text" class="form-control" name="rockName" [(ngModel)]="nestnoticeid.rockName"
-      placeholder="Nazwa skały">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" name="regionName" [(ngModel)]="nestnoticeid.regionName"
-      placeholder="Nazwa regionu">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" name="noticeDescription" [(ngModel)]="nestnoticeid.noticeDescription"
-      placeholder="Opis zgłoszenia">
-  </div>
+    <div class="form-group">
+      <input class="form-control w-50" name="routeName" [(ngModel)]="nestnoticeid.routeName">
+    </div>
 
-  <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Edytuj zgłoszenie</button>
-    <button class="btn btn-default mr-2" type="button" routerLink="/">Anuluj</button>
+    <div class="form-group">
+      <input type="text" class="form-control w-50" name="rockName" [(ngModel)]="nestnoticeid.rockName"
+        placeholder="Nazwa skały">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control w-50" name="regionName" [(ngModel)]="nestnoticeid.regionName"
+        placeholder="Nazwa regionu">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control w-50" name="noticeDescription" [(ngModel)]="nestnoticeid.noticeDescription"
+        placeholder="Opis zgłoszenia">
+    </div>
+
+    <div class="form-group text-center">
+      <button class="btn btn-success btn-lg mr-2" type="submit">Zapisz zmiany</button>
+      <button class="btn btn-warning btn-lg mr-2" type="button" (click)="cancel()">Anuluj</button>
+    </div>
   </div>
 </form>

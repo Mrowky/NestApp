@@ -1,33 +1,33 @@
-<h2 class="text-center text-primary">Lista zgłoszeń</h2>
+<h2 class="text-center text-primary py-5">Lista zgłoszeń</h2>
 
-<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 nestlist-table">
 
- 
-  <ng-container matColumnDef="routeName">
-    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by routeName">
+
+  <ng-container style="text-align: center;" matColumnDef="routeName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by routeName" class="header">
       Nazwa drogi
     </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.routeName}} </mat-cell>
   </ng-container>
 
-  
+
   <ng-container matColumnDef="rockName">
-    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by rockName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by rockName" class="header">
       Nazwa skały
     </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.rockName}} </mat-cell>
   </ng-container>
 
-  
+
   <ng-container matColumnDef="regionName">
-    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by regionName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by regionName" class="header">
       Nazwa regionu
     </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.regionName}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="noticeDescription">
-    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by noticeDescription">
+    <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by noticeDescription" class="header">
       Opis zgłoszenia
     </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.noticeDescription}} </mat-cell>
@@ -36,11 +36,11 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button type="button" class="btn btn-primary" routerLink='editnestnotice/{{row.id}}'>
-        Edytuj
+      <button type="button" class="btn btn-primary ml-4 mr-2" routerLink='editnestnotice/{{row.id}}'>
+        <i class="fas fa-edit"></i>
       </button>
       <button type="button" class="btn btn-primary" (click)="deleteNestNotice(row.id)">
-        Usuń
+        <i class="fas fa-trash-alt"></i>
       </button>
     </mat-cell>
   </ng-container>

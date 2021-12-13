@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'NestApp';
+  title = 'System dodawania zgłoszeń o ptasich gniazdach na drogach wspinaczkowych.';
   @ViewChild('sidenav') sidenav: MatSidenav;
   isOpened = false;
 
