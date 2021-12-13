@@ -1,9 +1,8 @@
   <div class="container marketing">
-    <!-- Three columns of text below the carousel -->
+    <!-- okrągłe zdjęcia  -->
     <div class="row">
       <div class="col-lg-3">
-        <img class="rounded-circle" width="140" height="140" src="assets/images/nestphoto.jpg"
-          alt="Gniazdo z ptakiem">
+        <img class="rounded-circle" width="140" height="140" src="assets/images/nestphoto.jpg" alt="Gniazdo z ptakiem">
         <h3 class="my-4">Opis aplikacji</h3>
         <p>Aplikacja umożliwia sprawne sprawdzenie i dodanie zgłoszenia o ptasim gnieździe na drodze wspinaczkowej </p>
         <p><a class="btn btn-secondary" (click)="scroll(description)">Czytaj więcej »</a></p>
@@ -18,8 +17,7 @@
       </div><!-- /.col-lg-4 -->
 
       <div class="col-lg-3">
-        <img class="rounded-circle" width="140" height="140" src="assets/images/techno.png"
-           alt="Angular .NET" >
+        <img class="rounded-circle" width="140" height="140" src="assets/images/techno.png" alt="Angular .NET">
         <h3 class="my-4">Technologie</h3>
         <p>Aplikacja została napisana w technologii .NET Core 5.0 oraz Angular 11. Dane są przechowywane w bazie danych
           SQLite. </p>
@@ -27,22 +25,22 @@
       </div><!-- /.col-lg-4 -->
 
       <div class="col-lg-3">
-        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="assets/images/wspin.png" role="img"
-          alt="Wspinacz" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="assets/images/wspin.png"
+          alt="Wspinacz">
         <h3 class="my-4">O projekcie</h3>
         <p>Aplikacja została stworzona jako praca podyplomowa ze studiów Programowanie Aplikacji Webowych na AGH w
           Krakowie</p>
         <p><a class="btn btn-secondary" (click)="scroll(about)">Czytaj więcej »</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+      </div>
+    </div>
 
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
 
     <div #description class="row featurette">
-      <div class="col-md-7">
-        <h3>Opis aplikacji </h3>
+      <div class="col-md-7 my-auto">
+        <h3 class="mb-3">Opis aplikacji </h3>
         <p class="lead text-justify">Aplikacja webowa ma umożliwić użytkownikom sprawne dodanie informacji o
           nowopowstałym ptasim
           gnieździe w okolicy drogi wpinaczkowej, a także przeglądanie już istniejących zgłoszeń. Użytkownik ma do
@@ -50,10 +48,8 @@
           zgłoszenia z bazy danych które zostały zaakceptowane przez administratora. Dodaj zgłoszenie umożliwia
           użytkownikowi podanie informacji o ptasim gnieździe na drodze wspinaczkowej.</p>
       </div>
-      <div class="col-md-5">
-        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" src="assets/images/nestphoto2.jpg" role="img" aria-label="Placeholder: 500x500"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
+      <div class="col-md-5 my-auto">
+        <img class="img-fluid" width="500" height="500" src="assets/images/nestphoto2.jpg" alt="Gniazdo z ptakiem">
         <title>Placeholder</title>
       </div>
     </div>
@@ -61,33 +57,33 @@
     <hr class="featurette-divider">
 
     <div #how class="row featurette">
-      <div class="col-md-7 order-md-2">
+      <div class="col-md-7 order-md-2 my-auto">
         <h3>Jak to działa? </h3>
         <p class="lead text-justify">Po uruchomieniu aplikacji użytkownik przechodzi do komponentu nestlist. Komponent
           pobiera z bazy
           danych wszystkie zaakceptowane przez administratora zgłoszenia i wyświetla je w postaci tabeli z możliwością
           sortowania alfabetycznego po dowolnej kolumnie. W kolumnie znajdują się informacji o nazwie drogi, nazwie
-          skały, nazwie regionu oraz opis zgłoszenia.
-          Następnym komponentem do dyspozycji użytkownika jest addingnest. Umożliwia on dodanie zgłoszenia do bazy
+          skały, nazwie regionu oraz opis zgłoszenia.</p>
+        <p class="lead text-justify"> Następnym komponentem do dyspozycji użytkownika jest addingnest. Umożliwia on
+          dodanie zgłoszenia do bazy
           danych. Wspinacz po zaobserwowaniu ptasiego gniazda w okolicy drogi wspinaczkowej poprzez wypełnienie pól
           formularza dodaje zgłoszenie. Należy wprowadzić wszystkie pola formularza dopiero wtedy przycisk dodający
           zgłoszenie stanie się aktywny. Formularz podlega walidacji zarówno po stronie serwera jak i klienta. W
           przypadku poprawnego dodania zgłoszenia pojawia się komunikat o dodaniu zgłoszenia, natomiast gdy wystąpi błąd
           zostanie wyświetlona informacja o błędzie. Zgłoszenia zapisują się w bazie danych z flagą notactive i na tym
-          etapie nie są widoczne dla użytkownika.
+          etapie nie są widoczne dla użytkownika.</p>
+        <p class="lead text-justify">
           W celu weryfikacji zgłoszeń zostało stworzone konto administratora. Login i hasło do konta przechowywane są w
           bazie danych. Logowanie do konta odbywa się poprzez wpisanie adresu https://localhost:4200/admin w
           przeglądarkę, oraz podanie danych logowania: login: admin3, hasło: password. Po zalogowaniu otrzymujemy dostęp
           do jeszcze jednego komponentu – notactivenestlist. Administrator w tym komponencie ma możliwość zaakceptowania
           zgłoszeń poprzez kliknięcie przycisku „Akceptuj” obok zgłoszenia. Po zaakceptowaniu zgłoszenia jest ono
           widoczne dla wszystkich użytkowników w komponencie nestlist. Administrator ma również możliwość edycji i
-          usuwania zgłoszeń z komponentu nestlist, poprzez kliknięcie odpowiedniego przycisku obok zgłoszenia.
-        </p>
+          usuwania zgłoszeń z komponentu nestlist, poprzez kliknięcie odpowiedniego przycisku obok zgłoszenia.</p>
+
       </div>
-      <div class="col-md-5 order-md-1">
-        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" src="assets/images/martin2.jpg" aria-label="Placeholder: 500x500"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
+      <div class="col-md-5 order-md-1 my-auto">
+        <img class="img-fluid" width="500" height="500" src="assets/images/martin2.jpg" alt="Gniazdo jaskółek">
         <title>Placeholder</title>
 
       </div>
@@ -96,7 +92,7 @@
     <hr class="featurette-divider">
 
     <div #tech class="row featurette">
-      <div class="col-md-7">
+      <div class="col-md-7 my-auto">
         <h3 class="featurette-heading"> Wykorzystane technologie </h3>
         <p class="lead text-justify">Aplikacja została napisana w technologii .NET Core 5.0 oraz Angular 11. Baza danych
           została stworzona w SQLite. Do mapowanie bazy danych wykorzystałem Entity Framework. Hasło administratora
@@ -104,29 +100,25 @@
           Wykorzystano również Angular Materials, Bootstrapa oraz CSS.
         </p>
       </div>
-      <div class="col-md-5">
-        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" src="assets/images/techno2.jpg" alt="Angular .NET" preserveAspectRatio="xMidYMid slice"
-          focusable="false">
-        <title>Placeholder</title>
-
+      <div class="col-md-5 my-auto">
+        <img class="img-fluid" width="500"
+          height="500" src="assets/images/techno2.jpg" alt="Angular .NET" >
       </div>
     </div>
 
     <hr class="featurette-divider">
 
     <div #about class="row featurette">
-      <div class="col-md-7 order-md-2">
+      <div class="col-md-7 order-md-2 my-auto">
         <h3> O projekcie </h3>
         <p class="lead text-justify">Aplikacja została stworzona jako praca podyplomowa ze studiów Programowanie
           Aplikacji Webowych
           na Akademi Górniczo Hutniczej w Krakowie.
         </p>
       </div>
-      <div class="col-md-5 order-md-1">
-        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" src="assets/images/sokolica2.jpg" alt="Skałka sokolica" preserveAspectRatio="xMidYMid slice"
-          focusable="false">
+      <div class="col-md-5 order-md-1 my-auto">
+        <img class="img-fluid" width="500"
+          height="500" src="assets/images/sokolica2.jpg" alt="Skałka sokolica" >
       </div>
     </div>
     <!-- /END THE FEATURETTES -->
