@@ -9,7 +9,7 @@ import { Nestnoticeid } from '../_models/nestnoticeid';
   providedIn: 'root'
 })
 export class NestlistService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = 'http://localhost:5001/api/';
   nestnotices: Nestnotice[] = [];
 
   constructor(private http: HttpClient) { }
